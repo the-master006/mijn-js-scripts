@@ -476,6 +476,7 @@
         css += '.report-date { position: absolute; top: 15px; right: 20px; color: var(--brand-dark); font-size: 0.85em; }';
         css += '.section { padding: 30px 40px; border-bottom: 1px solid var(--gray-200); }';
         css += '.section-title { color: var(--brand-dark); font-size: 1.4em; font-weight: 600; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid var(--brand-blue); display: inline-block; }';
+        css += '.section-intro { color: var(--gray-700); font-size: 0.95em; line-height: 1.7; margin-bottom: 20px; }';
         css += '.config-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }';
         css += '.config-item { background: var(--gray-50); padding: 15px 20px; border-radius: 10px; border-left: 4px solid var(--brand-blue); }';
         css += '.config-label { font-size: 0.85em; color: var(--gray-500); margin-bottom: 5px; }';
@@ -506,13 +507,28 @@
         css += '.seasonal-grid .chart-title { font-size: 1em; margin-bottom: 10px; }';
         css += '.info-box { border-radius: 12px; padding: 20px 25px; margin: 15px 0; }';
         css += '.info-box-green { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-left: 4px solid var(--green); }';
+        css += '.info-box-blue { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-left: 4px solid var(--brand-dark); }';
         css += '.info-box-title { font-weight: 600; font-size: 1.1em; margin-bottom: 12px; color: #065f46; }';
         css += '.info-box ul { list-style: none; }';
         css += '.info-box li { padding: 6px 0 6px 25px; position: relative; }';
         css += '.info-box li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: bold; }';
+        css += '.tips-list { }';
+        css += '.tip-item { padding: 15px 20px; margin: 12px 0; background: var(--gray-50); border-radius: 8px; border-left: 3px solid var(--brand-blue); }';
+        css += '.tip-title { color: var(--gray-700); margin-bottom: 8px; }';
+        css += '.tip-title strong { color: var(--brand-dark); }';
+        css += '.tip-description { color: var(--gray-500); font-size: 0.9em; line-height: 1.6; margin: 0; }';
+        css += '.co2-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px; }';
+        css += '.co2-card { background: white; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 1px 3px rgb(0 0 0 / 0.1); }';
+        css += '.co2-value { font-size: 2em; font-weight: 700; color: var(--green); }';
+        css += '.co2-label { color: var(--gray-500); font-size: 0.9em; margin-top: 5px; }';
+        css += '.co2-highlight { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); grid-column: span 2; display: flex; align-items: center; justify-content: center; gap: 15px; padding: 25px; }';
+        css += '.co2-highlight .tree-icon { font-size: 3em; }';
+        css += '.co2-highlight-text { font-size: 1.1em; color: #065f46; }';
         css += '.recommendation-box { background: linear-gradient(135deg, var(--brand-blue) 0%, #7bb8d0 100%); border-radius: 15px; padding: 25px 30px; color: var(--brand-dark); }';
         css += '.recommendation-title { font-size: 1.2em; font-weight: 700; margin-bottom: 15px; }';
         css += '.recommendation-text { font-size: 1.05em; line-height: 1.7; }';
+        css += '.recommendation-buttons { margin-top: 20px; text-align: center; }';
+        css += '.btn-recommend { display: inline-block; background: var(--brand-dark); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; }';
         css += '.contact-box { background: var(--brand-dark); border-radius: 15px; padding: 30px; color: white; text-align: center; }';
         css += '.contact-title { font-size: 1.3em; font-weight: 600; margin-bottom: 20px; }';
         css += '.contact-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }';
@@ -525,11 +541,16 @@
         css += '.footer-brand { color: var(--brand-dark); font-weight: 600; }';
         css += '.download-section { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 12px; padding: 20px 25px; margin: 20px 40px; border: 1px solid #bae6fd; }';
         css += '.download-title { font-weight: 600; font-size: 1.1em; color: var(--brand-dark); margin-bottom: 10px; }';
+        css += '.download-intro { color: #475569; font-size: 0.9em; margin-bottom: 15px; }';
         css += '.download-buttons { display: flex; gap: 12px; margin-bottom: 15px; flex-wrap: wrap; }';
         css += '.btn-download { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 0.95em; }';
         css += '.btn-print { background: var(--brand-dark); color: white; }';
         css += '.btn-html { background: white; color: var(--brand-dark); border: 2px solid var(--brand-dark); }';
-        css += '@media (max-width: 700px) { .config-grid, .seasonal-grid { grid-template-columns: 1fr; } .donut-grid { grid-template-columns: 1fr; } .contact-buttons, .download-buttons { flex-direction: column; } .section { padding: 20px; } }';
+        css += '.download-instructions { background: white; border-radius: 8px; padding: 15px; font-size: 0.85em; color: var(--gray-500); }';
+        css += '.download-instructions strong { color: var(--brand-dark); }';
+        css += '.download-instructions ol { margin: 10px 0 0 20px; }';
+        css += '.download-instructions li { margin: 5px 0; }';
+        css += '@media (max-width: 700px) { .config-grid, .seasonal-grid, .co2-grid { grid-template-columns: 1fr; } .co2-highlight { grid-column: span 1; } .donut-grid { grid-template-columns: 1fr; } .contact-buttons, .download-buttons { flex-direction: column; } .section { padding: 20px; } }';
         css += '@media print { .download-section { display: none !important; } .section { page-break-inside: avoid; } }';
         
         var html = '<!DOCTYPE html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">';
@@ -538,9 +559,16 @@
         html += '<style>' + css + '</style></head><body>';
         html += '<div class="report-container">';
         html += '<header class="header"><span class="report-date">' + reportDate + '</span><h1>AccuThuis</h1><p class="header-subtitle">Persoonlijk Batterij Simulatie Rapport</p></header>';
-        html += '<div class="download-section"><div class="download-title">📥 Rapport Opslaan</div><div class="download-buttons"><button class="btn-download btn-print" onclick="window.print()">🖨️ Opslaan als PDF</button><button class="btn-download btn-html" onclick="downloadHTML()">💾 Download HTML</button></div></div>';
         
+        // Download section
+        html += '<div class="download-section"><div class="download-title">📥 Rapport Opslaan</div>';
+        html += '<p class="download-intro">Sla dit rapport op zodat je het later kunt raadplegen of delen.</p>';
+        html += '<div class="download-buttons"><button class="btn-download btn-print" onclick="window.print()">🖨️ Opslaan als PDF</button><button class="btn-download btn-html" onclick="downloadHTML()">💾 Download HTML</button></div>';
+        html += '<div class="download-instructions"><strong>Instructies:</strong><ol><li><strong>PDF opslaan:</strong> Klik op "Opslaan als PDF" → Kies "Opslaan als PDF" als printer → Sla op</li><li><strong>HTML downloaden:</strong> Klik op "Download HTML" → Open later in elke browser</li></ol></div></div>';
+        
+        // Configuratie sectie
         html += '<section class="section"><h2 class="section-title">Uw Configuratie</h2>';
+        html += '<p class="section-intro">We hebben je ingestelde waarden uit de simulator overgenomen in dit rapport. Het rapport gaat uit van een dynamisch energie contract, omdat je daarmee het meeste kunt besparen. Dan kun je naast zonne-energie opslaan in de zomer, in de winter ook \'s nachts, op de goedkoopste momenten de batterij vol laden om op de dure momenten zoals in de avond en in de ochtend de energie te kunnen gebruiken.</p>';
         html += '<div class="config-grid">';
         html += '<div class="config-item"><div class="config-label">Zonnepanelen vermogen</div><div class="config-value">' + d.inputs.solarWp + ' Wp</div></div>';
         html += '<div class="config-item"><div class="config-label">Jaarlijks verbruik</div><div class="config-value">' + d.inputs.annualConsumption + ' kWh</div></div>';
@@ -548,44 +576,77 @@
         html += '<div class="config-item"><div class="config-label">Energiecontract</div><div class="config-value">Dynamisch</div></div>';
         html += '</div></section>';
         
+        // Pakket Vergelijking
         html += '<section class="section"><h2 class="section-title">Pakket Vergelijking</h2>';
-        html += '<table class="comparison-table"><thead><tr><th></th><th>Zonder Batterij</th><th>Plus (5 kWh)</th><th>Pro (14 kWh)</th></tr></thead><tbody>';
+        html += '<p class="section-intro">Je ziet hier de 2 pakketten van AccuThuis vergeleken met een systeem zonder thuisbatterij, waarbij alle zonne-energie die niet direct verbruikt wordt naar het net gaat, en waar je maar 1 cent of minder per kWh voor terug krijgt.</p>';
+        html += '<table class="comparison-table"><thead><tr><th></th><th>Zonder Batterij</th><th>Plus Pakket (5 kWh)</th><th>Pro Pakket (14 kWh)</th></tr></thead><tbody>';
         html += '<tr><td>Investering</td><td>€0</td><td>€2.799</td><td>€4.399</td></tr>';
-        html += '<tr><td>Energiekosten/jaar</td><td>€' + d.noBattery.netEnergyCost + '</td><td>€' + d.plusPakket.netEnergyCost + '</td><td>€' + d.proPakket.netEnergyCost + '</td></tr>';
-        html += '<tr><td>Besparing/jaar</td><td>-</td><td class="highlight-green">€' + d.plusPakket.annualSavings + '</td><td class="highlight-green">€' + d.proPakket.annualSavings + '</td></tr>';
+        html += '<tr><td>Energiekosten per jaar</td><td>€' + d.noBattery.netEnergyCost + '</td><td>€' + d.plusPakket.netEnergyCost + '</td><td>€' + d.proPakket.netEnergyCost + '</td></tr>';
+        html += '<tr><td>Besparing per jaar</td><td>-</td><td class="highlight-green">€' + d.plusPakket.annualSavings + '</td><td class="highlight-green">€' + d.proPakket.annualSavings + '</td></tr>';
         html += '<tr><td>Zelfvoorzienend</td><td>' + d.noBattery.selfSufficiency + '%</td><td>' + d.plusPakket.selfSufficiency + '%</td><td>' + d.proPakket.selfSufficiency + '%</td></tr>';
         html += '<tr><td>Terugverdientijd</td><td>-</td><td>' + (d.plusPakket.roiYears ? d.plusPakket.roiYears + ' jaar' : 'n.v.t.') + '</td><td>' + (d.proPakket.roiYears ? d.proPakket.roiYears + ' jaar' : 'n.v.t.') + '</td></tr>';
-        html += '<tr><td>Besparing 15 jaar</td><td>-</td><td class="highlight-blue">€' + d.plusPakket.lifetimeSavings.toLocaleString('nl-NL') + '</td><td class="highlight-blue">€' + d.proPakket.lifetimeSavings.toLocaleString('nl-NL') + '</td></tr>';
-        html += '<tr><td><strong>Netto winst 15 jaar</strong></td><td>-</td><td class="highlight-green">€' + d.plusPakket.netProfit.toLocaleString('nl-NL') + '</td><td class="highlight-green">€' + d.proPakket.netProfit.toLocaleString('nl-NL') + '</td></tr>';
+        html += '<tr><td>Besparing over 15 jaar</td><td>-</td><td class="highlight-blue">€' + d.plusPakket.lifetimeSavings.toLocaleString('nl-NL') + '</td><td class="highlight-blue">€' + d.proPakket.lifetimeSavings.toLocaleString('nl-NL') + '</td></tr>';
+        html += '<tr><td><strong>Netto winst na 15 jaar</strong></td><td>-</td><td class="highlight-green">€' + d.plusPakket.netProfit.toLocaleString('nl-NL') + '</td><td class="highlight-green">€' + d.proPakket.netProfit.toLocaleString('nl-NL') + '</td></tr>';
+        html += '<tr><td>CO₂ besparing per jaar</td><td>-</td><td>' + d.plusPakket.co2Savings + ' kg</td><td>' + d.proPakket.co2Savings + ' kg</td></tr>';
         html += '</tbody></table></section>';
         
+        // Opgetelde Besparing
         html += '<section class="section"><h2 class="section-title">Opgetelde Besparing</h2>';
-        html += '<div class="chart-container"><div class="chart-title">Vergelijking over 15 jaar</div><div class="chart-wrapper-large"><canvas id="cumulativeChart"></canvas></div></div></section>';
+        html += '<p class="section-intro">Je ziet hieronder het financiële plaatje over de komende jaren: in jaar 0 doe je de aanschaf van de thuisbatterij, hier hangen kosten aan; en door de besparingen die je dan jaarlijks realiseert verdien je de batterij terug en ga je na een aantal jaren hier ook geld mee verdienen. Deze grafieken lopen verschillend voor de 2 pakketten want het Pro pakket is duurder in aanschaf dan het Plus pakket, maar kan op de langere termijn wel meer opleveren.</p>';
+        html += '<div class="chart-container"><div class="chart-title">Vergelijking over 15 jaar (incl. 2% jaarlijkse degradatie)</div><div class="chart-wrapper-large"><canvas id="cumulativeChart"></canvas></div></div></section>';
         
+        // Energie Overzicht
         html += '<section class="section"><h2 class="section-title">Energie Overzicht</h2>';
+        html += '<p class="section-intro">Het totaal aan energieverbruik wat je maandelijks hebt, samen met de opbrengst van de zonne-energie. In de winter gebruik je meer energie voor verwarming, vaker tv etc, maar is er zeer weinig zonne-energie. En in de zomer juist andersom. Een thuisbatterij kan dit effect niet compenseren, maar wel het dagelijks energieverbruik optimaliseren en daarmee zorgen voor zo groot mogelijke besparing op de energiekosten.</p>';
         html += '<div class="chart-container"><div class="chart-title">Maandelijkse Productie vs Verbruik</div><div class="chart-wrapper"><canvas id="monthlyChart"></canvas></div></div>';
-        html += '<div class="chart-container"><div class="chart-title">Energie Verdeling</div>';
-        html += '<div class="donut-legend"><span class="legend-item"><span class="legend-color" style="background: rgba(16, 185, 129, 0.8);"></span> Direct</span><span class="legend-item"><span class="legend-color" style="background: rgba(139, 92, 246, 0.8);"></span> Batterij</span><span class="legend-item"><span class="legend-color" style="background: rgba(245, 158, 11, 0.8);"></span> Teruggeleverd</span></div>';
-        html += '<div class="donut-grid"><div class="donut-item"><div class="donut-label">Zonder Batterij</div><div class="donut-wrapper"><canvas id="donutNo"></canvas></div></div><div class="donut-item"><div class="donut-label">Plus Pakket</div><div class="donut-wrapper"><canvas id="donutPlus"></canvas></div></div><div class="donut-item"><div class="donut-label">Pro Pakket</div><div class="donut-wrapper"><canvas id="donutPro"></canvas></div></div></div>';
+        html += '<div class="chart-container"><div class="chart-title">Energie Verdeling per Scenario</div>';
+        html += '<div class="donut-legend"><span class="legend-item"><span class="legend-color" style="background: rgba(16, 185, 129, 0.8);"></span> Direct Gebruikt</span><span class="legend-item"><span class="legend-color" style="background: rgba(139, 92, 246, 0.8);"></span> Via Batterij</span><span class="legend-item"><span class="legend-color" style="background: rgba(245, 158, 11, 0.8);"></span> Teruggeleverd</span></div>';
+        html += '<div class="donut-grid"><div class="donut-item"><div class="donut-label">Zonder Batterij</div><div class="donut-wrapper"><canvas id="donutNo"></canvas></div></div><div class="donut-item"><div class="donut-label">Plus Pakket (5 kWh)</div><div class="donut-wrapper"><canvas id="donutPlus"></canvas></div></div><div class="donut-item"><div class="donut-label">Pro Pakket (14 kWh)</div><div class="donut-wrapper"><canvas id="donutPro"></canvas></div></div></div>';
         html += '</div></section>';
         
-        html += '<section class="section"><h2 class="section-title">Seizoensanalyse - Pro Pakket</h2>';
+        // Seizoensanalyse
+        html += '<section class="section"><h2 class="section-title">Seizoensanalyse - Pro Pakket (14 kWh)</h2>';
+        html += '<p class="section-intro">Hieronder zie je hoe de batterij presteert op een typische dag in elk seizoen. In de zomer is er overvloedige zonne-energie waardoor de batterij snel vol raakt. In de winter is de productie beperkt, maar kan de batterij \'s nachts goedkoop worden opgeladen via het net met Dynamic ESS.</p>';
         html += '<div class="seasonal-grid">';
-        html += '<div class="chart-container"><div class="chart-title">☀️ Zomer</div><div class="chart-wrapper"><canvas id="summerChart"></canvas></div></div>';
-        html += '<div class="chart-container"><div class="chart-title">❄️ Winter</div><div class="chart-wrapper"><canvas id="winterChart"></canvas></div></div>';
-        html += '<div class="chart-container"><div class="chart-title">🌸 Lente</div><div class="chart-wrapper"><canvas id="springChart"></canvas></div></div>';
-        html += '<div class="chart-container"><div class="chart-title">🍂 Herfst</div><div class="chart-wrapper"><canvas id="autumnChart"></canvas></div></div>';
+        html += '<div class="chart-container"><div class="chart-title">☀️ Zomer (21 Juni)</div><div class="chart-wrapper"><canvas id="summerChart"></canvas></div></div>';
+        html += '<div class="chart-container"><div class="chart-title">❄️ Winter (21 December)</div><div class="chart-wrapper"><canvas id="winterChart"></canvas></div></div>';
+        html += '<div class="chart-container"><div class="chart-title">🌸 Lente (21 Maart)</div><div class="chart-wrapper"><canvas id="springChart"></canvas></div></div>';
+        html += '<div class="chart-container"><div class="chart-title">🍂 Herfst (21 September)</div><div class="chart-wrapper"><canvas id="autumnChart"></canvas></div></div>';
         html += '</div></section>';
         
-        html += '<section class="section"><h2 class="section-title">Garantie</h2>';
-        html += '<div class="info-box info-box-green"><div class="info-box-title">Uitgebreide Garantie</div><ul><li><strong>Batterij:</strong> 10 jaar fabrieksgarantie</li><li><strong>Omvormer:</strong> 5 jaar garantie (Victron Energy)</li><li><strong>Installatie:</strong> 3 jaar garantie</li><li><strong>Certificering:</strong> NEN 1010 gecertificeerd</li></ul></div></section>';
+        // Garantie & Kwaliteit
+        html += '<section class="section"><h2 class="section-title">Garantie & Kwaliteit</h2>';
+        html += '<div class="info-box info-box-green"><div class="info-box-title">Uitgebreide Garantie</div><ul><li><strong>Batterij:</strong> 10 jaar fabrieksgarantie</li><li><strong>Omvormer:</strong> 5 jaar fabrieksgarantie (Victron Energy)</li><li><strong>Installatie:</strong> 3 jaar garantie op vakmanschap</li><li><strong>Certificering:</strong> NEN 1010 gecertificeerde installatie</li></ul></div>';
+        html += '<p class="section-intro" style="margin-top: 20px;">Wij werken uitsluitend met hoogwaardige componenten van gerenommeerde fabrikanten. De Victron Energy omvormers staan bekend om hun betrouwbaarheid en lange levensduur. De LiFePO4 batterijen zijn de veiligste en duurzaamste batterijen op de markt.</p></section>';
         
+        // Tips voor Optimaal Gebruik
+        html += '<section class="section"><h2 class="section-title">Tips voor Optimaal Gebruik</h2>';
+        html += '<div class="tips-list">';
+        html += '<div class="tip-item"><div class="tip-title"><strong>Dynamic ESS activeren:</strong> Automatische optimalisatie met dynamische energieprijzen</div><p class="tip-description">Met Dynamic ESS (DESS) kan je Victron systeem automatisch inspelen op de dynamische energieprijzen. Het systeem laadt de batterij op wanneer de stroom goedkoop is en gebruikt de opgeslagen energie wanneer de prijzen hoog zijn. Dit maximaliseert je besparing zonder dat je er iets voor hoeft te doen.</p></div>';
+        html += '<div class="tip-item"><div class="tip-title"><strong>VRM Portal monitoren:</strong> Houd uw energiestromen in de gaten via de gratis Victron app</div><p class="tip-description">Via de VRM Portal en de Victron Connect app heb je altijd en overal inzicht in je energiesysteem. Je ziet real-time hoeveel energie je opwekt, verbruikt en opslaat. Ook kun je historische data bekijken en meldingen ontvangen bij eventuele problemen.</p></div>';
+        html += '<div class="tip-item"><div class="tip-title"><strong>Dynamisch contract:</strong> Overweeg Frank Energie voor extra besparingen met DESS</div><p class="tip-description">Een dynamisch energiecontract zoals Frank Energie is essentieel om maximaal te profiteren van je thuisbatterij. De uurprijzen variëren sterk - soms zelfs negatief! - en met DESS profiteer je automatisch van deze prijsverschillen. Veel van onze klanten besparen hiermee extra ten opzichte van een vast contract.</p></div>';
+        html += '</div></section>';
+        
+        // Milieu Impact
+        html += '<section class="section"><h2 class="section-title">Uw Milieu Impact</h2>';
+        html += '<div class="info-box info-box-blue">';
+        html += '<div class="co2-grid">';
+        html += '<div class="co2-card"><div class="co2-value">' + d.plusPakket.co2Savings + '</div><div class="co2-label">kg CO₂/jaar met Plus</div></div>';
+        html += '<div class="co2-card"><div class="co2-value">' + d.proPakket.co2Savings + '</div><div class="co2-label">kg CO₂/jaar met Pro</div></div>';
+        html += '<div class="co2-card co2-highlight"><span class="tree-icon">🌳</span><div class="co2-highlight-text">Met het Pro Pakket bespaart u over 15 jaar <strong>' + (d.proPakket.co2Savings * 15 / 1000).toFixed(1) + ' ton</strong> CO₂.<br>Gelijk aan het planten van <strong>' + Math.round(d.proPakket.co2Savings * 15 / 20) + '</strong> bomen!</div></div>';
+        html += '</div></div></section>';
+        
+        // Aanbeveling
         html += '<section class="section"><h2 class="section-title">Onze Aanbeveling</h2>';
-        html += '<div class="recommendation-box"><div class="recommendation-title">Advies op maat</div><p class="recommendation-text">' + recommendation + '</p></div></section>';
+        html += '<div class="recommendation-box"><div class="recommendation-title">Advies op maat</div><p class="recommendation-text">' + recommendation + '</p>';
+        var recommendedUrl = d.proPakket.roiYears && d.proPakket.roiYears < d.plusPakket.roiYears ? 'https://www.accuthuis.nu/product/20377863/pro-pakket-14-3kw' : 'https://www.accuthuis.nu/product/20566919/plus-pakket-5kw';
+        html += '<div class="recommendation-buttons"><a href="' + recommendedUrl + '" class="btn-recommend" target="_blank">🛒 Bekijk Aanbevolen Pakket</a></div></div></section>';
         
-        html += '<section class="section"><div class="contact-box"><div class="contact-title">Interesse? Neem contact op!</div><div class="contact-buttons"><a href="https://www.accuthuis.nu/contact" class="btn-contact" target="_blank">📧 Contact</a><a href="https://www.accuthuis.nu" class="btn-order" target="_blank">🛒 Bestellen</a></div><div class="contact-region">📍 Zuid-Gelderland & Oost-Brabant</div></div></section>';
+        // Contact
+        html += '<section class="section"><div class="contact-box"><div class="contact-title">Interesse? Neem contact op!</div><div class="contact-buttons"><a href="https://www.accuthuis.nu/contact" class="btn-contact" target="_blank">📧 Contact Formulier</a><a href="https://www.accuthuis.nu" class="btn-order" target="_blank">🛒 Bestel Hier</a></div><div class="contact-region">📍 Regio Zuid-Gelderland & Oost-Brabant</div></div></section>';
         
-        html += '<footer class="footer"><p class="disclaimer"><strong>Disclaimer:</strong> Indicatie op basis van gemiddelden.</p><p class="footer-brand">AccuThuis - Uw partner in thuisbatterijen</p></footer>';
+        // Footer
+        html += '<footer class="footer"><p class="disclaimer"><strong>Disclaimer:</strong> Deze simulatie geeft een indicatie op basis van gemiddelde waarden. Werkelijke besparingen zijn afhankelijk van weersinvloeden, verbruikspatroon en energieprijzen.</p><p class="footer-brand">AccuThuis - Uw partner in thuisbatterijen</p></footer>';
         html += '</div>';
         
         html += '<script>';
@@ -603,11 +664,11 @@
         html += 'var months = ["Jan","Feb","Mrt","Apr","Mei","Jun","Jul","Aug","Sep","Okt","Nov","Dec"];';
         html += 'var years = ["Jaar 0","Jaar 1","Jaar 2","Jaar 3","Jaar 4","Jaar 5","Jaar 6","Jaar 7","Jaar 8","Jaar 9","Jaar 10","Jaar 11","Jaar 12","Jaar 13","Jaar 14","Jaar 15"];';
         html += 'var hours = []; for (var h = 0; h < 24; h++) hours.push(h + ":00");';
-        html += 'new Chart(document.getElementById("cumulativeChart"), { type: "line", data: { labels: years, datasets: [{ label: "Plus (5 kWh)", data: data.cumulative.plus, borderColor: "rgba(59, 130, 246, 1)", backgroundColor: "rgba(59, 130, 246, 0.1)", borderWidth: 3, fill: true, tension: 0.3 },{ label: "Pro (14 kWh)", data: data.cumulative.pro, borderColor: "rgba(16, 185, 129, 1)", backgroundColor: "rgba(16, 185, 129, 0.1)", borderWidth: 3, fill: true, tension: 0.3 },{ label: "Break-even", data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], borderColor: "rgba(156, 163, 175, 0.8)", borderWidth: 2, borderDash: [8, 4], pointRadius: 0 }]}, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: { display: true, text: "Cumulatief (€)" } } }, plugins: { legend: { position: "bottom" } } } });';
-        html += 'new Chart(document.getElementById("monthlyChart"), { type: "bar", data: { labels: months, datasets: [{ label: "Productie", data: data.monthly.production, backgroundColor: "rgba(16, 185, 129, 0.7)" },{ label: "Verbruik", data: data.monthly.consumption, backgroundColor: "rgba(239, 68, 68, 0.7)" }]}, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: "kWh" } } }, plugins: { legend: { position: "bottom" } } } });';
-        html += 'function donut(id, d) { new Chart(document.getElementById(id), { type: "doughnut", data: { labels: ["Direct", "Batterij", "Export"], datasets: [{ data: [d.direct, d.battery, d.export], backgroundColor: ["rgba(16, 185, 129, 0.8)", "rgba(139, 92, 246, 0.8)", "rgba(245, 158, 11, 0.8)"] }] }, options: { responsive: true, maintainAspectRatio: false, cutout: "50%", plugins: { legend: { display: false } } } }); }';
+        html += 'new Chart(document.getElementById("cumulativeChart"), { type: "line", data: { labels: years, datasets: [{ label: "Plus Pakket (5 kWh)", data: data.cumulative.plus, borderColor: "rgba(59, 130, 246, 1)", backgroundColor: "rgba(59, 130, 246, 0.1)", borderWidth: 3, fill: true, tension: 0.3, pointRadius: 4 },{ label: "Pro Pakket (14 kWh)", data: data.cumulative.pro, borderColor: "rgba(16, 185, 129, 1)", backgroundColor: "rgba(16, 185, 129, 0.1)", borderWidth: 3, fill: true, tension: 0.3, pointRadius: 4 },{ label: "Break-even", data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], borderColor: "rgba(156, 163, 175, 0.8)", borderWidth: 2, borderDash: [8, 4], pointRadius: 0 }]}, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: { display: true, text: "Cumulatief (€)" } } }, plugins: { legend: { position: "bottom" } } } });';
+        html += 'new Chart(document.getElementById("monthlyChart"), { type: "bar", data: { labels: months, datasets: [{ label: "Productie", data: data.monthly.production, backgroundColor: "rgba(16, 185, 129, 0.7)", borderColor: "rgba(16, 185, 129, 1)", borderWidth: 1 },{ label: "Verbruik", data: data.monthly.consumption, backgroundColor: "rgba(239, 68, 68, 0.7)", borderColor: "rgba(239, 68, 68, 1)", borderWidth: 1 }]}, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: "kWh" } } }, plugins: { legend: { position: "bottom" } } } });';
+        html += 'function donut(id, d) { new Chart(document.getElementById(id), { type: "doughnut", data: { labels: ["Direct Gebruikt", "Via Batterij", "Teruggeleverd"], datasets: [{ data: [d.direct, d.battery, d.export], backgroundColor: ["rgba(16, 185, 129, 0.8)", "rgba(139, 92, 246, 0.8)", "rgba(245, 158, 11, 0.8)"], borderWidth: 2 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: "50%", plugins: { legend: { display: false } } } }); }';
         html += 'donut("donutNo", data.noBattery); donut("donutPlus", data.plus); donut("donutPro", data.pro);';
-        html += 'function dayChart(id, dd) { new Chart(document.getElementById(id), { type: "line", data: { labels: hours, datasets: [{ label: "Productie", data: dd.map(function(h) { return h.production.toFixed(2); }), borderColor: "rgba(241, 196, 15, 1)", backgroundColor: "rgba(241, 196, 15, 0.1)", borderWidth: 2, fill: true, tension: 0.4, yAxisID: "y" },{ label: "Verbruik", data: dd.map(function(h) { return h.consumption.toFixed(2); }), borderColor: "rgba(239, 68, 68, 1)", borderWidth: 2, tension: 0.4, yAxisID: "y" },{ label: "Batterij %", data: dd.map(function(h) { return h.soc.toFixed(1); }), borderColor: "rgba(139, 92, 246, 1)", borderWidth: 2, tension: 0.4, yAxisID: "y1" }]}, options: { responsive: true, maintainAspectRatio: false, scales: { y: { position: "left", beginAtZero: true, title: { display: true, text: "kW" } }, y1: { position: "right", beginAtZero: true, max: 100, title: { display: true, text: "%" }, grid: { drawOnChartArea: false } } }, plugins: { legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 9 } } } } } }); }';
+        html += 'function dayChart(id, dd) { new Chart(document.getElementById(id), { type: "line", data: { labels: hours, datasets: [{ label: "Productie", data: dd.map(function(h) { return h.production.toFixed(2); }), borderColor: "rgba(241, 196, 15, 1)", backgroundColor: "rgba(241, 196, 15, 0.15)", borderWidth: 2, fill: true, tension: 0.4, yAxisID: "y" },{ label: "Verbruik", data: dd.map(function(h) { return h.consumption.toFixed(2); }), borderColor: "rgba(239, 68, 68, 1)", borderWidth: 2, tension: 0.4, yAxisID: "y" },{ label: "Batterij %", data: dd.map(function(h) { return h.soc.toFixed(1); }), borderColor: "rgba(139, 92, 246, 1)", backgroundColor: "rgba(139, 92, 246, 0.1)", borderWidth: 2, fill: true, tension: 0.4, yAxisID: "y1" }]}, options: { responsive: true, maintainAspectRatio: false, scales: { x: { ticks: { maxTicksLimit: 12, font: { size: 9 } } }, y: { type: "linear", position: "left", beginAtZero: true, title: { display: true, text: "kW", font: { size: 10 } }, ticks: { font: { size: 9 } } }, y1: { type: "linear", position: "right", beginAtZero: true, max: 100, title: { display: true, text: "%", font: { size: 10 } }, grid: { drawOnChartArea: false }, ticks: { font: { size: 9 } } } }, plugins: { legend: { position: "bottom", labels: { boxWidth: 10, padding: 8, font: { size: 9 } } } } } }); }';
         html += 'dayChart("summerChart", data.summer); dayChart("winterChart", data.winter); dayChart("springChart", data.spring); dayChart("autumnChart", data.autumn);';
         html += 'function downloadHTML() { var h = document.documentElement.outerHTML; var blob = new Blob([h], { type: "text/html" }); var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "AccuThuis-Rapport.html"; a.click(); }';
         html += '<\/script></body></html>';
