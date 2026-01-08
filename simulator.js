@@ -1,5 +1,6 @@
-// AccuThuis Batterij Simulator v3.0
+// AccuThuis Batterij Simulator v7.0 - ROI FIX
 // Host dit bestand op GitHub Pages of een andere CDN
+console.log('AccuThuis Simulator v7.0 geladen - ROI fix voor uitgebreide pakketten');
 
 (function() {
     "use strict";
@@ -249,7 +250,8 @@
         var pakketPrices = { 0: 0, 5: 2799, 10: 4099, 14: 4399, 29: 7099, 43: 9399 };
         var pakketName = pakketNames[batteryCapacity] || '';
         var pakketCost = pakketPrices[batteryCapacity] || 0;
-        var roiYears = (result.annualSavings > 0 && pakketCost > 0) ? (pakketCost / result.annualSavings).toFixed(1) : null;
+        var savings = result.annualSavings || 0;
+        var roiYears = (savings > 0 && pakketCost > 0) ? (pakketCost / savings).toFixed(1) : null;
         var roiText = batteryCapacity === 0 ? '-' : (roiYears ? roiYears + ' jaar (' + pakketName + ')' : 'Geen besparing');
         
         document.getElementById('productionValue').textContent = result.totalProduction + ' kWh';
