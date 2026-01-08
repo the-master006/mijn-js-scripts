@@ -539,17 +539,13 @@
         css += '.footer { background: #f3f4f6; padding: 25px 40px; text-align: center; }';
         css += '.disclaimer { font-size: 0.8em; color: var(--gray-500); line-height: 1.7; margin-bottom: 15px; }';
         css += '.footer-brand { color: var(--brand-dark); font-weight: 600; }';
-        css += '.download-section { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 12px; padding: 20px 25px; margin: 20px 40px; border: 1px solid #bae6fd; }';
-        css += '.download-title { font-weight: 600; font-size: 1.1em; color: var(--brand-dark); margin-bottom: 10px; }';
-        css += '.download-intro { color: #475569; font-size: 0.9em; margin-bottom: 15px; }';
-        css += '.download-buttons { display: flex; gap: 12px; margin-bottom: 15px; flex-wrap: wrap; }';
-        css += '.btn-download { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 0.95em; }';
+        css += '.download-section { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 8px; padding: 12px 18px; margin: 15px 40px; border: 1px solid #bae6fd; }';
+        css += '.download-title { font-weight: 600; font-size: 0.9em; color: var(--brand-dark); margin-bottom: 6px; }';
+        css += '.download-intro { color: #475569; font-size: 0.8em; margin-bottom: 10px; }';
+        css += '.download-buttons { display: flex; gap: 8px; flex-wrap: wrap; }';
+        css += '.btn-download { display: inline-flex; align-items: center; gap: 5px; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; border: none; font-size: 0.8em; }';
         css += '.btn-print { background: var(--brand-dark); color: white; }';
-        css += '.btn-html { background: white; color: var(--brand-dark); border: 2px solid var(--brand-dark); }';
-        css += '.download-instructions { background: white; border-radius: 8px; padding: 15px; font-size: 0.85em; color: var(--gray-500); }';
-        css += '.download-instructions strong { color: var(--brand-dark); }';
-        css += '.download-instructions ol { margin: 10px 0 0 20px; }';
-        css += '.download-instructions li { margin: 5px 0; }';
+        css += '.btn-html { background: white; color: var(--brand-dark); border: 1px solid var(--brand-dark); }';
         css += '@media (max-width: 700px) { .config-grid, .seasonal-grid, .co2-grid { grid-template-columns: 1fr; } .co2-highlight { grid-column: span 1; } .donut-grid { grid-template-columns: 1fr; } .contact-buttons, .download-buttons { flex-direction: column; } .section { padding: 20px; } }';
         css += '@media print { .download-section { display: none !important; } .section { page-break-inside: avoid; } }';
         
@@ -560,11 +556,9 @@
         html += '<div class="report-container">';
         html += '<header class="header"><span class="report-date">' + reportDate + '</span><h1>AccuThuis</h1><p class="header-subtitle">Persoonlijk Batterij Simulatie Rapport</p></header>';
         
-        // Download section
+        // Download section (compact)
         html += '<div class="download-section"><div class="download-title">📥 Rapport Opslaan</div>';
-        html += '<p class="download-intro">Sla dit rapport op zodat je het later kunt raadplegen of delen.</p>';
-        html += '<div class="download-buttons"><button class="btn-download btn-print" onclick="window.print()">🖨️ Opslaan als PDF</button><button class="btn-download btn-html" onclick="downloadHTML()">💾 Download HTML</button></div>';
-        html += '<div class="download-instructions"><strong>Instructies:</strong><ol><li><strong>PDF opslaan:</strong> Klik op "Opslaan als PDF" → Kies "Opslaan als PDF" als printer → Sla op</li><li><strong>HTML downloaden:</strong> Klik op "Download HTML" → Open later in elke browser</li></ol></div></div>';
+        html += '<div class="download-buttons"><button class="btn-download btn-print" onclick="window.print()">🖨️ PDF</button><button class="btn-download btn-html" onclick="downloadHTML()">💾 HTML</button></div></div>';
         
         // Configuratie sectie
         html += '<section class="section"><h2 class="section-title">Uw Configuratie</h2>';
@@ -644,6 +638,10 @@
         
         // Contact
         html += '<section class="section"><div class="contact-box"><div class="contact-title">Interesse? Neem contact op!</div><div class="contact-buttons"><a href="https://www.accuthuis.nu/contact" class="btn-contact" target="_blank">📧 Contact Formulier</a><a href="https://www.accuthuis.nu" class="btn-order" target="_blank">🛒 Bestel Hier</a></div><div class="contact-region">📍 Regio Zuid-Gelderland & Oost-Brabant</div></div></section>';
+        
+        // Download section onderaan (herhaling)
+        html += '<div class="download-section"><div class="download-title">📥 Rapport Opslaan</div>';
+        html += '<div class="download-buttons"><button class="btn-download btn-print" onclick="window.print()">🖨️ PDF</button><button class="btn-download btn-html" onclick="downloadHTML()">💾 HTML</button></div></div>';
         
         // Footer
         html += '<footer class="footer"><p class="disclaimer"><strong>Disclaimer:</strong> Deze simulatie geeft een indicatie op basis van gemiddelde waarden. Werkelijke besparingen zijn afhankelijk van weersinvloeden, verbruikspatroon en energieprijzen.</p><p class="footer-brand">AccuThuis - Uw partner in thuisbatterijen</p></footer>';
