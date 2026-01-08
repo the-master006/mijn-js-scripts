@@ -108,7 +108,7 @@
         simulationResults.monthlyData.consumption = monthlyConsumptionData.map(function(v) { return Math.round(v); });
         simulationResults.noBattery = simulateScenario(0);
         simulationResults.plusPakket = simulateScenario(5);
-        simulationResults.proPakket = simulateScenario(14);
+        simulationResults.proPakket = simulateScenario(14.3);
         
         recalculateBatteryEffects();
         if (isAdvancedMode) updateCharts();
@@ -210,7 +210,7 @@
         var selfSufficiency = ((totalConsumption - totalGridPurchase) / totalConsumption) * 100;
         var netEnergyCost = totalEnergyCost - totalFeedInRevenue;
         var annualSavings = batteryCapacity > 0 ? (baselineCost - netEnergyCost) : 0;
-        var pakketCosts = { 0: 0, 5: 2799, 14: 4399 };
+        var pakketCosts = { 0: 0, 5: 2799, 10: 4099, 14.3: 4399, 28.6: 7099, 42.9: 9399 };
         var pakketCost = pakketCosts[batteryCapacity] || 0;
         var roiYears = annualSavings > 0 ? pakketCost / annualSavings : null;
         var lifetimeSavings = batteryCapacity > 0 ? annualSavings * 15 * 0.90 : 0;
@@ -236,16 +236,16 @@
     
     function recalculateBatteryEffects() {
         var sliderValue = parseInt(document.getElementById('batteryCapacity').value);
-        var batteryMap = isAdvancedMode ? [0, 5, 10, 14, 29, 43] : [0, 5, 14];
+        var batteryMap = isAdvancedMode ? [0, 5, 10, 14.3, 28.6, 42.9] : [0, 5, 14.3];
         var batteryCapacity = batteryMap[sliderValue];
         
         var result;
         if (batteryCapacity === 0) result = simulationResults.noBattery;
         else if (batteryCapacity === 5) result = simulationResults.plusPakket;
-        else if (batteryCapacity === 14) result = simulationResults.proPakket;
+        else if (batteryCapacity === 14.3) result = simulationResults.proPakket;
         else result = simulateScenario(batteryCapacity);
         
-        var pakketNames = { 5: 'Plus', 10: 'Plus+', 14: 'Pro', 29: 'Pro+', 43: 'Pro++' };
+        var pakketNames = { 5: 'Plus', 10: 'Plus+', 14.3: 'Pro', 28.6: 'Pro+', 42.9: 'Pro++' };
         var name = pakketNames[batteryCapacity] || '';
         var roiText = batteryCapacity === 0 ? '-' : (result.roiYears ? result.roiYears + ' jaar (' + name + ')' : 'Geen besparing');
         
@@ -309,7 +309,7 @@
     
     function updateDistributionChart() {
         var sliderValue = parseInt(document.getElementById('batteryCapacity').value);
-        var batteryMap = isAdvancedMode ? [0, 5, 10, 14, 29, 43] : [0, 5, 14];
+        var batteryMap = isAdvancedMode ? [0, 5, 10, 14.3, 28.6, 42.9] : [0, 5, 14.3];
         var cap = batteryMap[sliderValue];
         var result = cap === 0 ? simulationResults.noBattery : (cap === 5 ? simulationResults.plusPakket : simulationResults.proPakket);
         if (distributionChart) distributionChart.destroy();
@@ -366,7 +366,7 @@
     
     function updateDailyChart(dayOfYear) {
         var sliderValue = parseInt(document.getElementById('batteryCapacity').value);
-        var batteryMap = isAdvancedMode ? [0, 5, 10, 14, 29, 43] : [0, 5, 14];
+        var batteryMap = isAdvancedMode ? [0, 5, 10, 14.3, 28.6, 42.9] : [0, 5, 14.3];
         var cap = batteryMap[sliderValue];
         var dayData = simulateDayForChart(dayOfYear, cap);
         var hours = []; for (var h = 0; h < 24; h++) hours.push(h + ':00');
@@ -429,10 +429,10 @@
         var months = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
         var reportDate = today.getDate() + ' ' + months[today.getMonth()] + ' ' + today.getFullYear();
         
-        var summerDay = simulateDayForChart(172, 14);
-        var winterDay = simulateDayForChart(355, 14);
-        var springDay = simulateDayForChart(80, 14);
-        var autumnDay = simulateDayForChart(264, 14);
+        var summerDay = simulateDayForChart(172, 14.3);
+        var winterDay = simulateDayForChart(355, 14.3);
+        var springDay = simulateDayForChart(80, 14.3);
+        var autumnDay = simulateDayForChart(264, 14.3);
         
         var plusCum = [-2799], proCum = [-4399];
         var pC = -2799, prC = -4399;
@@ -687,9 +687,9 @@
         });
         
         document.getElementById('batteryCapacity').addEventListener('input', function() {
-            var batteryMap = isAdvancedMode ? [0, 5, 10, 14, 29, 43] : [0, 5, 14];
+            var batteryMap = isAdvancedMode ? [0, 5, 10, 14.3, 28.6, 42.9] : [0, 5, 14.3];
             var cap = batteryMap[parseInt(this.value)];
-            var names = { 0: 'Geen batterij', 5: '5 kWh', 10: '10 kWh (Plus+)', 14: '14 kWh', 29: '29 kWh (Pro+)', 43: '43 kWh (Pro++)' };
+            var names = { 0: 'Geen batterij', 5: '5 kWh (Plus)', 10: '10 kWh (Plus+)', 14.3: '14.3 kWh (Pro)', 28.6: '28.6 kWh (Pro+)', 42.9: '42.9 kWh (Pro++)' };
             document.getElementById('capacityDisplay').textContent = names[cap];
             if (baseHourlyData.length > 0) { recalculateBatteryEffects(); if (isAdvancedMode) updateCharts(); }
         });
