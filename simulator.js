@@ -210,14 +210,9 @@
         var selfSufficiency = ((totalConsumption - totalGridPurchase) / totalConsumption) * 100;
         var netEnergyCost = totalEnergyCost - totalFeedInRevenue;
         var annualSavings = batteryCapacity > 0 ? (baselineCost - netEnergyCost) : 0;
-        var pakketCost = 0;
-        if (batteryCapacity === 0) pakketCost = 0;
-        else if (batteryCapacity === 5) pakketCost = 2799;
-        else if (batteryCapacity === 10) pakketCost = 4099;
-        else if (batteryCapacity === 14) pakketCost = 4399;
-        else if (batteryCapacity === 29) pakketCost = 7099;
-        else if (batteryCapacity === 43) pakketCost = 9399;
-        var roiYears = annualSavings > 0 ? pakketCost / annualSavings : null;
+        var pakketPrices = { 0: 0, 5: 2799, 10: 4099, 14: 4399, 29: 7099, 43: 9399 };
+        var pakketCost = pakketPrices[batteryCapacity] || 0;
+        var roiYears = (annualSavings > 0 && pakketCost > 0) ? pakketCost / annualSavings : null;
         var lifetimeSavings = batteryCapacity > 0 ? annualSavings * 15 * 0.90 : 0;
         
         return {
@@ -250,12 +245,8 @@
         else if (batteryCapacity === 14) result = simulationResults.proPakket;
         else result = simulateScenario(batteryCapacity);
         
-        var pakketName = '';
-        if (batteryCapacity === 5) pakketName = 'Plus';
-        else if (batteryCapacity === 10) pakketName = 'Plus+';
-        else if (batteryCapacity === 14) pakketName = 'Pro';
-        else if (batteryCapacity === 29) pakketName = 'Pro+';
-        else if (batteryCapacity === 43) pakketName = 'Pro++';
+        var pakketNames = { 0: '', 5: 'Plus', 10: 'Plus+', 14: 'Pro', 29: 'Pro+', 43: 'Pro++' };
+        var pakketName = pakketNames[batteryCapacity] || '';
         var roiText = batteryCapacity === 0 ? '-' : (result.roiYears ? result.roiYears + ' jaar (' + pakketName + ')' : 'Geen besparing');
         
         document.getElementById('productionValue').textContent = result.totalProduction + ' kWh';
@@ -698,12 +689,8 @@
         document.getElementById('batteryCapacity').addEventListener('input', function() {
             var batteryMap = isAdvancedMode ? [0, 5, 10, 14, 29, 43] : [0, 5, 14];
             var cap = batteryMap[parseInt(this.value)];
-            var name = 'Geen batterij';
-            if (cap === 5) name = '5 kWh (Plus)';
-            else if (cap === 10) name = '10 kWh (Plus+)';
-            else if (cap === 14) name = '14 kWh (Pro)';
-            else if (cap === 29) name = '29 kWh (Pro+)';
-            else if (cap === 43) name = '43 kWh (Pro++)';
+            var displayNames = { 0: 'Geen batterij', 5: '5 kWh (Plus)', 10: '10 kWh (Plus+)', 14: '14 kWh (Pro)', 29: '29 kWh (Pro+)', 43: '43 kWh (Pro++)' };
+            var name = displayNames[cap] || 'Geen batterij';
             document.getElementById('capacityDisplay').textContent = name;
             if (baseHourlyData.length > 0) { recalculateBatteryEffects(); if (isAdvancedMode) updateCharts(); }
         });
