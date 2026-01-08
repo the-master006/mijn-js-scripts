@@ -246,8 +246,11 @@
         else result = simulateScenario(batteryCapacity);
         
         var pakketNames = { 0: '', 5: 'Plus', 10: 'Plus+', 14: 'Pro', 29: 'Pro+', 43: 'Pro++' };
+        var pakketPrices = { 0: 0, 5: 2799, 10: 4099, 14: 4399, 29: 7099, 43: 9399 };
         var pakketName = pakketNames[batteryCapacity] || '';
-        var roiText = batteryCapacity === 0 ? '-' : (result.roiYears ? result.roiYears + ' jaar (' + pakketName + ')' : 'Geen besparing');
+        var pakketCost = pakketPrices[batteryCapacity] || 0;
+        var roiYears = (result.annualSavings > 0 && pakketCost > 0) ? (pakketCost / result.annualSavings).toFixed(1) : null;
+        var roiText = batteryCapacity === 0 ? '-' : (roiYears ? roiYears + ' jaar (' + pakketName + ')' : 'Geen besparing');
         
         document.getElementById('productionValue').textContent = result.totalProduction + ' kWh';
         document.getElementById('selfSufficiencyValue').textContent = result.selfSufficiency + '%';
