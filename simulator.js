@@ -1,4 +1,4 @@
-// AccuThuis Batterij Simulator v7.0 - ROI FIX
+// AccuThuis Batterij Simulator v7.0 - ROI FIX_
 // Host dit bestand op GitHub Pages of een andere CDN
 console.log('AccuThuis Simulator v7.0 geladen - ROI fix voor uitgebreide pakketten');
 
